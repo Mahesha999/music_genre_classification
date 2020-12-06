@@ -11,10 +11,10 @@ import numpy as np
   
 
 def rf_fit_predict(X_train, y_train, X_test):
-  classifier = RandomForestClassifier(max_samples=0.95, n_estimators= 3000, bootstrap=True, min_samples_split=2, min_samples_leaf=1, criterion="entropy", random_state=0)
+  classifier = RandomForestClassifier(n_estimators= 100, criterion="entropy", random_state=0)
   # classifier = ExtraTreesClassifier(max_samples=0.75, n_estimators= 3000, bootstrap=True, min_samples_split=2, min_samples_leaf=1, criterion="entropy", random_state=0)
   classifier.fit(X_train,y_train)
-  # print(classifier.get_params())
+  print("Hypperparameters: ", classifier.get_params())
   return classifier.predict(X_test)
 
 def randomized_search_fold_size_rf_fit_predict(X_train, y_train, X_test):
