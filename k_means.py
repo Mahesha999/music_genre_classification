@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 def elbow(X_train):
     wcss = []
     for i in range(1,20):
-        kmeans = KMeans(n_clusters=i, init='k-means++', max_iter=300, random_state=0, n_init=10)
+        kmeans = KMeans(n_clusters=i, init='k-means++', max_iter=1000, random_state=0, n_init=10)
         kmeans.fit(X_train)
         wcss.append(kmeans.inertia_) # Sum of squared distances of samples to their closest cluster center.
 
